@@ -7,6 +7,8 @@ $uri_parse = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 include 'Controller/PessoaController.php';
 include 'Controller/ProdutoController.php';
+include 'Controller/CategoriaController.php';
+
 
 switch($uri_parse)
 {
@@ -34,6 +36,19 @@ switch($uri_parse)
     case '/produto/save':
         ProdutoController::save();
     break;
+
+    case '/categoria':
+        CategoriaController::index();
+    break;
+
+    case '/categoria/form':
+        CategoriaController::form();
+    break;
+
+    case '/categoria/save':
+        CategoriaController::save();
+    break;
+
 
 
      case '/formulario':
@@ -69,6 +84,10 @@ switch($uri_parse)
 
     case '/formulariopessoa':
         include 'View/modules/Pessoa/FormPessoa.php';
+    break;
+
+    case '/formulariocategoria':
+        include 'View/modules/Categoria/CategoriaCadastro.php';
     break;
 
     default:
