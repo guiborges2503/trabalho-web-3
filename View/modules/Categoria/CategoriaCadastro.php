@@ -13,7 +13,7 @@
     <form action="/categoria/save" method="post">
         <fieldset>
             <legend>Cadastro de Categoria</legend>
-            <label for="id">id:</label>
+            <label for="id">Id:</label>
             <input name="id" id="id" type="text" />
 
             <label for="rg">Nome:</label>

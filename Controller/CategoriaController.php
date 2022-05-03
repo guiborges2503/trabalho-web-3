@@ -28,6 +28,6 @@ class CategoriaController
        
         $Categoria->save();  
 
-        header("Location: /Categoria"); 
+        header("Location: /categoria"); 
     }
 }
