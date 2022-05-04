@@ -30,6 +30,6 @@ class ProdutoController
        
         $Produto->save();  
 
-        header("Location: /Produto"); 
+        header("Location: /produto"); 
     }
 }
