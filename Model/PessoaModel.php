@@ -29,14 +29,28 @@ class PessoaModel
             // No que estamos enviado o proprio objeto model para o insert, por isso do this
             $dao->insert($this);
         } else {
-            // update
+        
+            $dao->update($this);
         }
     }
 
     public function getAllRows(){
+
         include "DAO/PessoaDAO.php";
 
         $dao = new PessoaDAO();
         $this->rows = $dao->getAllRows();
+    }
+
+    public function getById(int $id)
+    {
+        include 'DAO/PessoaDAO.php'; 
+
+        $dao = new PessoaDAO();
+
+        $obj = $dao->selectById($id); 
+
+        
+        return ($obj) ? $obj : new PessoaModel(); 
     }
 }
