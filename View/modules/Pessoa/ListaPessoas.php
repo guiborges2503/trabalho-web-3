@@ -21,6 +21,9 @@
             <th>Telefone</th>
             <th>Email</th>
             <th>Endereço</th>
+      
+ 
+
         </tr>
 
         <?php foreach ($model->rows as $item) : ?>
@@ -33,6 +36,7 @@
                 <td><?= $item['telefone'] ?></td>
                 <td><?= $item['email'] ?></td>
                 <td><?= $item['endereco'] ?></td>
+                <td><a href="/pessoa/form?id=<?= $item['id'] ?>">editar</a></td>
             </tr>
         <?php endforeach ?>
     </table>
