@@ -37,6 +37,7 @@
                 <td><?= $item['email'] ?></td>
                 <td><?= $item['endereco'] ?></td>
                 <td><a href="/pessoa/form?id=<?= $item['id'] ?>">editar</a></td>
+                <td><a href="/pessoa/excluir?id=<?= $item['id'] ?>">deletar</a></td>
             </tr>
         <?php endforeach ?>
     </table>
