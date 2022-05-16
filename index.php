@@ -24,6 +24,9 @@ switch($uri_parse)
         PessoaController::save();
     break;
 
+    case '/pessoa/excluir':
+        PessoaController::delete();
+    break;
 
     case '/produto':
         ProdutoController::index();
@@ -36,6 +39,11 @@ switch($uri_parse)
     case '/produto/save':
         ProdutoController::save();
     break;
+
+    case '/produto/excluir':
+        ProdutoController::delete();
+    break;
+
 
     case '/categoria':
         CategoriaController::index();
@@ -82,9 +90,7 @@ switch($uri_parse)
         include 'View/modules/Produto/ProdutoCadastro.php';
     break;
 
-    case '/formulariopessoa':
-        include 'View/modules/Pessoa/FormPessoa.php';
-    break;
+    
 
     case '/formulariocategoria':
         include 'View/modules/Categoria/CategoriaCadastro.php';

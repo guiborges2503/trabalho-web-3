@@ -21,6 +21,7 @@
             <th>Descrição</th>
             <th>Data</th>
             <th>Valor</th>
+            
         </tr>
 
         <?php foreach ($model->rows as $item) : ?>
@@ -31,6 +32,8 @@
                 <td><?= $item['descricao'] ?></td>
                 <td><?= $item['data'] ?></td>
                 <td><?= $item['valor'] ?></td>
+                <td><a href="/produto/form?id=<?= $item['id'] ?>">editar</a></td>
+            <td><a href="/produto/excluir?id=<?= $item['id'] ?>">deletar</a></td>
             </tr>
         <?php endforeach ?>
     </table>

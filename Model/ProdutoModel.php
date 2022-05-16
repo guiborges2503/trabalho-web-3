@@ -31,4 +31,12 @@ class ProdutoModel
         
         $this->rows = $dao->getAllRows();
     }    
+
+    public function delete(int $id)
+    {
+        include 'DAO/ProdutoDAO.php'; 
+
+        $dao = new ProdutoDAO();
+        $dao->delete($id);
+    }
 }

@@ -32,4 +32,14 @@ class ProdutoController
 
         header("Location: /produto"); 
     }
+
+    public static function delete()
+    {
+        include 'Model/ProdutoModel.php'; 
+
+        $model = new ProdutoModel();
+        $model->delete( (int) $_GET['id'] ); 
+
+        header("Location: /produto"); 
+     }
 }

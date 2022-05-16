@@ -61,4 +61,14 @@ class PessoaController
 
         header("Location: /pessoa"); // redirecionando o usuário para outra rota.
     }
+
+    public static function delete()
+    {
+        include 'Model/PessoaModel.php'; 
+
+        $model = new PessoaModel();
+        $model->delete( (int) $_GET['id'] ); 
+
+        header("Location: /pessoa"); 
+     }
 }

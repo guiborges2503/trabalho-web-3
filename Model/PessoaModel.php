@@ -53,4 +53,12 @@ class PessoaModel
         
         return ($obj) ? $obj : new PessoaModel(); 
     }
+
+    public function delete(int $id)
+    {
+        include 'DAO/PessoaDAO.php'; 
+
+        $dao = new PessoaDAO();
+        $dao->delete($id);
+    }
 }
