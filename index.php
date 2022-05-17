@@ -57,6 +57,10 @@ switch($uri_parse)
         CategoriaController::save();
     break;
 
+    case '/categoria/excluir':
+        CategoriaController::delete();
+    break;
+
 
 
      case '/formulario':

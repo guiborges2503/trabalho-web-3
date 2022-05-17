@@ -36,18 +36,20 @@ class ProdutoDAO
         $stmt->execute();      
     }
 
-     public function update(ProdutoModel $model)
+   
+
+    public function update(CategoriaModel $model)
     {
-        $sql = "UPDATE produto SET codigo=?, produto=?, descricao=?, data=?, valor=? WHERE id=? ";
+        $sql = "UPDATE categoria SET codigo=?, produto=?, descricao=?, data=?, valor=?  WHERE id=? ";
 
         $stmt = $this->conexao->prepare($sql);
      
         $stmt->bindValue(1, $model->codigo);
-        $stmt->bindValue(1, $model->produto);
+        $stmt->bindValue(2, $model->produto);
         $stmt->bindValue(3, $model->descricao);
         $stmt->bindValue(4, $model->data);
         $stmt->bindValue(5, $model->valor);
-        $stmt->bindValue(8, $model->id);
+        $stmt->bindValue(6, $model->id);
         
         $stmt->execute();
     }

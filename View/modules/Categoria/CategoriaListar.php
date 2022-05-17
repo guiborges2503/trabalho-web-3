@@ -24,6 +24,8 @@
             <tr>
                 <td><?= $item['id'] ?></td>
                 <td><?= $item['nome'] ?></td>
+                <td><a href="/categoria/form?id=<?= $item['id'] ?>">editar</a></td>
+                <td><a href="/categoria/excluir?id=<?= $item['id'] ?>">deletar</a></td>
                 
             </tr>
         <?php endforeach ?>

@@ -12,11 +12,19 @@ class CategoriaController
         include 'View/modules/Categoria/CategoriaListar.php';
     }
 
+   
     public static function form()
     {
-        include 'View/modules/Categoria/CategoriaCadastro.php';
-    }
+        include 'Model/CategoriaModel.php'; 
+        $model = new CategoriaModel();
 
+        if(isset($_GET['id'])) 
+            $model = $model->getById( (int) $_GET['id']); 
+            
+
+        include 'View/modules/Categoria/FormCategoria.php'; 
+    }
+    
     public static function save() {
 
         include 'Model/CategoriaModel.php'; 
@@ -30,4 +38,14 @@ class CategoriaController
 
         header("Location: /categoria"); 
     }
+
+    public static function delete()
+    {
+        include 'Model/CategoriaModel.php'; 
+
+        $model = new CategoriaModel();
+        $model->delete( (int) $_GET['id'] ); 
+
+        header("Location: /categoria"); 
+     }
 }

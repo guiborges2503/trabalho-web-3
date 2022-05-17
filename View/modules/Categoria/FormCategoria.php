@@ -13,11 +13,10 @@
     <form action="/categoria/save" method="post">
         <fieldset>
             <legend>Cadastro de Categoria</legend>
-            <label for="id">Id:</label>
-            <input name="id" id="id" type="text" />
+            <input name="id" id="id" type="hidden" value="<?= $model->id ?>" />
 
-            <label for="rg">Nome:</label>
-            <input name="rg" id="rg" type="text" />
+            <label for="nome">Nome:</label>
+            <input name="nome" id="nome" type="text" />
 
 
             <button type="submit">Enviar</button>
