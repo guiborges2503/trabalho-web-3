@@ -38,7 +38,7 @@ class ProdutoDAO
 
      public function update(ProdutoModel $model)
     {
-        $sql = "UPDATE pessoa SET codigo=?, produto=?, descricao=?, data=?, valor=? WHERE id=? ";
+        $sql = "UPDATE produto SET codigo=?, produto=?, descricao=?, data=?, valor=? WHERE id=? ";
 
         $stmt = $this->conexao->prepare($sql);
      
@@ -82,4 +82,5 @@ class ProdutoDAO
         $stmt->bindValue(1, $id);
         $stmt->execute();
     }
+
 }

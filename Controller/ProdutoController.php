@@ -12,8 +12,14 @@ class ProdutoController
         include 'View/modules/Produto/ProdutoListar.php';
     }
 
-    public static function form()
-    {
+  
+        public static function form()
+        {
+            include 'Model/ProdutoModel.php'; // inclusão do arquivo model.
+            $model = new ProdutoModel();
+    
+            if(isset($_GET['id'])) // Verificando se existe uma variável $_GET
+                $model = $model->getById( (int) $_GET['id']);
         include 'View/modules/Produto/ProdutoCadastro.php';
     }
 
