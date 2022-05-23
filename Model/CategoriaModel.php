@@ -2,10 +2,9 @@
 
 class CategoriaModel
 {
-   
     public $id, $nome;
-    
 
+    public $rows;
 
     public function save()
     {
@@ -13,40 +12,33 @@ class CategoriaModel
 
         $dao = new CategoriaDAO();
 
-     
-        if($this->id == null) 
-        {
-            
+        if($this->id == null) {
             $dao->insert($this);
         } else {
-        
             $dao->update($this);
         }
     }
 
     public function getAllRows(){
-        include "DAO/CategoriaDAO.php";
+        include 'DAO/CategoriaDAO.php';
 
         $dao = new CategoriaDAO();
-        
+
         $this->rows = $dao->getAllRows();
-    }    
+    }
 
-    public function getById(int $id)
-    {
-        include 'DAO/CategoriaDAO.php'; 
+    public function getById(int $id){
+        include 'DAO/CategoriaDAO.php';
 
         $dao = new CategoriaDAO();
+        $obj = $dao->selectById($id);
 
-        $obj = $dao->selectById($id); 
-
-        
-        return ($obj) ? $obj : new CategoriaModel(); 
+        return ($obj) ? $obj : new CategoriaModel();
     }
 
     public function delete(int $id)
     {
-        include 'DAO/CategoriaDAO.php'; 
+        include 'DAO/CategoriaDAO.php';
 
         $dao = new CategoriaDAO();
         $dao->delete($id);

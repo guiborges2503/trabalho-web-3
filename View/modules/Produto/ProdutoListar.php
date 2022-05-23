@@ -21,6 +21,8 @@
             <th>Descrição</th>
             <th>Data</th>
             <th>Valor</th>
+            <th>Categoria</th>
+                    <th>Ações</th>
             
         </tr>
 
@@ -32,6 +34,7 @@
                 <td><?= $item['descricao'] ?></td>
                 <td><?= $item['data'] ?></td>
                 <td><?= $item['valor'] ?></td>
+                <td><?= $item['categoria'] ?></td>
                 <td><a href="/produto/form?id=<?= $item['id'] ?>">editar</a></td>
             <td><a href="/produto/excluir?id=<?= $item['id'] ?>">deletar</a></td>
             </tr>

@@ -30,6 +30,13 @@
             <label for="valor">Valor:</label>
             <input name="valor" id="valor" type="text" value="<?= $model->valor ?>" />
 
+            <label for="id_categoria">Categoria:</label>
+            <select name="id_categoria" id="id_categoria">
+            <?php foreach ($modelCategoria->rows as $item) : ?>
+                    <option value="<?= $item['id'] ?>"><?= $item['nome'] ?></option>
+            <?php endforeach ?>
+            </select>
+            
             <button type="submit">Enviar</button>
 
         </fieldset>
