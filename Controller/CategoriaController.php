@@ -7,7 +7,7 @@ class CategoriaController
 {
     public static function index() 
     {
-        include 'Model/CategoriaModel.php';
+       
         $model = new CategoriaModel();
         $model->getAllRows();
 
@@ -16,7 +16,7 @@ class CategoriaController
 
     public static function form()
     {
-        include 'Model/CategoriaModel.php';
+        
         $model = new CategoriaModel();
 
         if(isset($_GET['id']))
@@ -27,7 +27,7 @@ class CategoriaController
 
     public static function save() {
 
-        include 'Model/CategoriaModel.php';
+        
 
         $categoria = new CategoriaModel();
         $categoria->id = $_POST['id'];
@@ -39,7 +39,7 @@ class CategoriaController
 
     public static function delete()
     {
-        include 'Model/CategoriaModel.php';
+        
 
         $model = new CategoriaModel();
         $model->delete( (int) $_GET['id'] );

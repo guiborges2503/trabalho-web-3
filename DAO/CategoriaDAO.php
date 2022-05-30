@@ -31,7 +31,7 @@ class CategoriaDAO
     }
 
     public function selectById(int $id){
-        include_once 'Model/CategoriaModel.php';
+        
 
         $sql = "SELECT * FROM categoria WHERE id = ?";
 

@@ -8,7 +8,7 @@ class CategoriaModel
 
     public function save()
     {
-        include 'DAO/CategoriaDAO.php';
+       
 
         $dao = new CategoriaDAO();
 
@@ -20,7 +20,7 @@ class CategoriaModel
     }
 
     public function getAllRows(){
-        include 'DAO/CategoriaDAO.php';
+        
 
         $dao = new CategoriaDAO();
 
@@ -28,8 +28,7 @@ class CategoriaModel
     }
 
     public function getById(int $id){
-        include 'DAO/CategoriaDAO.php';
-
+        
         $dao = new CategoriaDAO();
         $obj = $dao->selectById($id);
 
@@ -38,7 +37,7 @@ class CategoriaModel
 
     public function delete(int $id)
     {
-        include 'DAO/CategoriaDAO.php';
+        
 
         $dao = new CategoriaDAO();
         $dao->delete($id);

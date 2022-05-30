@@ -15,7 +15,7 @@ class PessoaController
      */
     public static function index() 
     {
-        include 'Model/PessoaModel.php';
+        
         $model = new PessoaModel();
         $model->getAllRows();
     
@@ -27,7 +27,7 @@ class PessoaController
 
     public static function form()
     {
-        include 'Model/PessoaModel.php'; // inclusão do arquivo model.
+       
         $model = new PessoaModel();
 
         if(isset($_GET['id'])) // Verificando se existe uma variável $_GET
@@ -43,7 +43,7 @@ class PessoaController
      */
     public static function save() {
 
-        include 'Model/PessoaModel.php'; // inclusão do arquivo model.
+        
 
         // Abaixo cada propriedade do objeto sendo abastecida com os dados informados
         // pelo usuário no formulário (note o envio via POST)
@@ -64,7 +64,7 @@ class PessoaController
 
     public static function delete()
     {
-        include 'Model/PessoaModel.php'; 
+        
 
         $model = new PessoaModel();
         $model->delete( (int) $_GET['id'] ); 

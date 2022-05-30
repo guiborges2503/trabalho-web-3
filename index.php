@@ -2,16 +2,19 @@
 
 $uri_parse = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-//echo $uri_parse;
-//echo "<hr />";
-
-include 'Controller/PessoaController.php';
-include 'Controller/ProdutoController.php';
-include 'Controller/CategoriaController.php';
-
+include 'autoload.php';
 
 switch($uri_parse)
 {
+    /*
+    Estrutura:
+    Caso a rota seja "/pessoa"
+    O objeto PessoaControler vai executar a função "index()"
+    */
+
+    //Todos os outros comentários estão em todos os arquivos relacionados a Categoria
+
+    //Rotas de Pessoa
     case '/pessoa':
         PessoaController::index();
     break;
@@ -28,6 +31,7 @@ switch($uri_parse)
         PessoaController::delete();
     break;
 
+    //Rotas de Produto
     case '/produto':
         ProdutoController::index();
     break;
@@ -44,7 +48,7 @@ switch($uri_parse)
         ProdutoController::delete();
     break;
 
-
+    //Rotas de Categoria
     case '/categoria':
         CategoriaController::index();
     break;
@@ -61,47 +65,7 @@ switch($uri_parse)
         CategoriaController::delete();
     break;
 
-
-
-     case '/formulario':
-        include 'View/formulario.php';
-    break;
-
-    case '/processa':
-        echo "vai pegar o que o usuário digitou <br />";
-        echo $_POST['nome'];
-        echo "<br />";
-        var_dump($_POST);
-    break;
-
-    case '/produto':
-        echo "listar produtos";
-    break;
-
-    case '/produto/ver':
-        echo "ver detalhes de produto";
-    break;
-
-    case '/produto/delete':
-        echo "remover produto";
-    break;
-
-    case '/produto/salvar':
-        echo "salva no banco de dados";
-    break;
-
-    case '/formularioproduto':
-        include 'View/modules/Produto/ProdutoCadastro.php';
-    break;
-
-    
-
-    case '/formulariocategoria':
-        include 'View/modules/Categoria/CategoriaCadastro.php';
-    break;
-
     default:
-        echo "erro 404";
+        echo "Erro 404";
     break;
-
 }
