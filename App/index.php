@@ -6,7 +6,9 @@ include 'config.php';
 include 'autoload.php';
  
 use App\Controller\{
+    CategoriaController,
     PessoaController,
+    ProdutoController,
 };
 
 switch($uri_parse)

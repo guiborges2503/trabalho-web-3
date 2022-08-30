@@ -48,7 +48,6 @@ class PessoaController
      */
     public static function save() {
 
-        
 
         // Abaixo cada propriedade do objeto sendo abastecida com os dados informados
         // pelo usuário no formulário (note o envio via POST)

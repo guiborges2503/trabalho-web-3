@@ -1,5 +1,10 @@
 <?php
 
+namespace App\DAO;
+use App\Model\ProdutoModel;
+use \PDO;
+
+
 class ProdutoDAO
 {
     private $conexao;
@@ -35,7 +40,7 @@ class ProdutoDAO
         $stmt->bindValue(1, $id);
         $stmt->execute();
 
-        return $stmt->fetchObject("ProdutoModel");
+        return $stmt->fetchObject("App/Model/ProdutoModel");
     }
 
     public function update(produtoModel $model){

@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Controller;
+use App\Model\CategoriaModel;
 
 /**
  * Classe para determinar quais rotas...

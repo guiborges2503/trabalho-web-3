@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,7 +17,8 @@
         <fieldset>
             <legend>Cadastro de Pessoa</legend>
             <input name="id" id="id" type="hidden" value="<?= $model->id ?>" />
-
+      
+            <hr />  
             <label for="nome">Nome:</label>
             <input name="nome" id="nome" type="text" value="<?= $model->nome ?>" />
 
@@ -37,6 +41,8 @@
             <input name="endereco" id="endereco" type="text" value="<?= $model->endereco ?>" />
 
             <button type="submit">Enviar</button>
+            
+            <hr />
 
         </fieldset>
     </form>    

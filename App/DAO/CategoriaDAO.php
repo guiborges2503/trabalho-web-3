@@ -1,4 +1,8 @@
 <?php
+ 
+ namespace App\DAO;
+ use App\Model\CategoriaModel;
+ use \PDO;
 
 class CategoriaDAO
 {
@@ -39,7 +43,7 @@ class CategoriaDAO
         $stmt->bindValue(1, $id);
         $stmt->execute();
 
-        return $stmt->fetchObject("CategoriaModel");
+        return $stmt->fetchObject("App/Model/CategoriaModel");
     }
 
     public function update(CategoriaModel $model){

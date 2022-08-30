@@ -14,7 +14,8 @@
         <fieldset>
             <legend>Cadastro de Produto</legend>
             <input name="id" id="id" type="hidden" value="<?= $model->id ?>" />
-
+   
+            <hr />
             <label for="codigo">Codigo:</label>
             <input name="codigo" id="codigo" type="number" value="<?= $model->codigo ?>" />
 
@@ -38,7 +39,7 @@
             </select>
             
             <button type="submit">Enviar</button>
-
+           <hr />
         </fieldset>
     </form>    
 </body>
