@@ -4,7 +4,7 @@
  use App\DAO\CategoriaDAO;
 
 
-class CategoriaModel
+class CategoriaModel extends Model
 {
     public $id, $nome;
 

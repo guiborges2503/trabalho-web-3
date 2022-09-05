@@ -6,7 +6,7 @@ use App\Model\CategoriaModel;
 use App\Model\ProdutoModel;
 
 
-class ProdutoController 
+class ProdutoController extends Controller
 {
     
     public static function index() 
@@ -15,7 +15,8 @@ class ProdutoController
         $model = new ProdutoModel();
         $model->getAllRows();
 
-        include 'View/modules/Produto/ProdutoListar.php';
+        parent::render('Produto/ProdutoListar.php');
+        
     }
 
     
@@ -31,7 +32,7 @@ class ProdutoController
         if(isset($_GET['id']))
             $model = $model->getById( (int) $_GET['id']);
 
-        include 'View/modules/Produto/FormProduto.php';
+        parent::render('Produto/FormProduto.php');
     }
 
   

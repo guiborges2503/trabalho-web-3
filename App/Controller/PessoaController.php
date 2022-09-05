@@ -13,7 +13,7 @@ use App\Model\PessoaModel;
  * buscar algo no banco de dados), redirecionar o usuário de rota, ou mesmo,
  * chamar outra Controller.
  */
-class PessoaController 
+class PessoaController extends Controller
 {
     /**
      * Os métodos index serão usados para devolver uma View.
@@ -26,11 +26,12 @@ class PessoaController
     
 
 
-        include 'View/modules/Pessoa/ListaPessoas.php';
+        parent::render('Pessoa/ListaPessoa.php', $model);
     
     }
 
     public static function form()
+    
     {
        
         $model = new PessoaModel();
@@ -39,9 +40,10 @@ class PessoaController
             $model = $model->getById( (int) $_GET['id']); // Typecast e obtendo o model preenchido vindo da DAO.
             // Para saber mais sobre Typecast, leia: https://tiago.blog.br/type-cast-ou-conversao-de-tipos-do-php-isso-pode-te-ajudar-muito/
 
-        include 'View/modules/Pessoa/FormPessoa.php'; // Include da View. Note que a variável $model está disponível na View.
-    }
-    
+      parent::render('Pessoa/FormPessoa.php');
+    } 
+
+     
 
     /**
      * Preenche um Model para que seja enviado ao banco de dados para salvar.

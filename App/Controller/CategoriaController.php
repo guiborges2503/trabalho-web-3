@@ -6,7 +6,7 @@ use App\Model\CategoriaModel;
 /**
  * Classe para determinar quais rotas...
  */
-class CategoriaController 
+class CategoriaController extends Controller
 {
     public static function index() 
     {
@@ -14,7 +14,7 @@ class CategoriaController
         $model = new CategoriaModel();
         $model->getAllRows();
 
-        include 'View/modules/Categoria/ListarCategoria.php';
+       parent::render('Categoria/ListarCategoria.php');
     }
 
     public static function form()
@@ -25,7 +25,7 @@ class CategoriaController
         if(isset($_GET['id']))
             $model = $model->getById( (int) $_GET['id']);
 
-        include 'View/modules/Categoria/FormCategoria.php';
+        parent::render('Categoria/FormCategoria.php');
     }
 
     public static function save() {

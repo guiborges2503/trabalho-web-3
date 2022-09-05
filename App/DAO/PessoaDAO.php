@@ -9,7 +9,7 @@ use \PDO;
  * As classes DAO (Data Access Object) são responsáveis por executar os
  * SQL junto ao banco de dados.
  */
-class PessoaDAO
+class PessoaDAO 
 {
     /**
      * Atributo (ou Propriedade) da classe destinado a armazenar o link (vínculo aberto)
@@ -26,11 +26,11 @@ class PessoaDAO
      * A conexão é aberta via PDO (PHP Data Object) que é um recurso da linguagem para
      * acesso a diversos SGBDs.
      */
-    function __construct() 
+     function __construct() 
     {
         // DSN (Data Source Name) onde o servidor MySQL será encontrado
         // (host) em qual porta o MySQL está operado e qual o nome do banco pretendido. 
-        $dsn = "mysql:host=localhost:3307;dbname=db_sistema";
+        $dsn = "mysql:host=localhost:3306;dbname=db_sistema";
         $user = "root";
         $pass = "etecjau";
         

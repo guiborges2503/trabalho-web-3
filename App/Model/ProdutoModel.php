@@ -4,7 +4,7 @@ namespace App\Model;
 use App\DAO\ProdutoDAO;
  
 
-class ProdutoModel
+class ProdutoModel extends Model
 {
     public $id, $codigo, $valor, $descricao, $data, $id_categoria;
 
