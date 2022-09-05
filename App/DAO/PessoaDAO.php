@@ -30,7 +30,7 @@ class PessoaDAO
     {
         // DSN (Data Source Name) onde o servidor MySQL será encontrado
         // (host) em qual porta o MySQL está operado e qual o nome do banco pretendido. 
-        $dsn = "mysql:host=localhost:3306;dbname=db_sistema";
+        $dsn = "mysql:host=localhost:3307;dbname=db_sistema";
         $user = "root";
         $pass = "etecjau";
         

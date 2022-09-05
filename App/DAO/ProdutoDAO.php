@@ -10,7 +10,7 @@ class ProdutoDAO
     private $conexao;
 
     function __construct() {
-        $dsn = "mysql:host=localhost:3306;dbname=db_sistema";
+        $dsn = "mysql:host=localhost:3307;dbname=db_sistema";
         $user = "root";
         $pass = "etecjau";
         
