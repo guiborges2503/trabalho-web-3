@@ -1,31 +1,31 @@
 <?php
- 
- namespace App\DAO;
- use App\Model\CategoriaModel;
- use \PDO;
 
-class CategoriaDAO
+namespace App\DAO;
+
+use App\Model\CategoriaModel;
+use \PDO;
+
+class CategoriaDAO extends DAO
 {
-    private $conexao;
 
-    function __construct() {
-        $dsn = "mysql:host=localhost:3306;dbname=db_sistema";
-        $user = "root";
-        $pass = "etecjau";
-        
-        $this->conexao = new PDO($dsn, $user, $pass);
+
+    function __construct()
+    {
+        parent::__construct();
     }
 
-    function insert(CategoriaModel $model){
+    function insert(CategoriaModel $model)
+    {
         $sql = "INSERT INTO categoria
                 (nome) VALUES (?)";
-        
+
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $model->nome);
-        $stmt->execute();   
+        $stmt->execute();
     }
 
-    function getAllRows(){
+    function getAllRows()
+    {
         $sql = "SELECT * FROM categoria";
 
         $stmt = $this->conexao->prepare($sql);
@@ -34,8 +34,9 @@ class CategoriaDAO
         return $stmt->fetchAll();
     }
 
-    public function selectById(int $id){
-        
+    public function selectById(int $id)
+    {
+
 
         $sql = "SELECT * FROM categoria WHERE id = ?";
 
@@ -46,7 +47,8 @@ class CategoriaDAO
         return $stmt->fetchObject("App/Model/CategoriaModel");
     }
 
-    public function update(CategoriaModel $model){
+    public function update(CategoriaModel $model)
+    {
         $sql = "UPDATE categoria SET nome=? WHERE id=? ";
 
         $stmt = $this->conexao->prepare($sql);
