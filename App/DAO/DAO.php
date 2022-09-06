@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\DAO;
 
@@ -7,18 +7,13 @@ use \PDO;
 abstract class DAO
 {
 
-   protected $conexao;
+  protected $conexao;
 
-   public function __construct()
-   {
-    
-     $dsn = "mysql:host=" . $_ENV['db']['host'] . ";dbname=" . $_ENV['db']['database'];
+  public function __construct()
+  {
 
-     $this->conexao = new PDO($dsn, $_ENV['db']['user'], $_ENV['db']['pass']);
-     
+    $dsn = "mysql:host=" . $_ENV['db']['host'] . ";dbname=" . $_ENV['db']['database'];
 
-
-   }
-
-
+    $this->conexao = new PDO($dsn, $_ENV['db']['user'], $_ENV['db']['pass']);
+  }
 }
