@@ -2,52 +2,57 @@
 
 namespace App\Controller;
 
-use App\Model\CategoriaModel;
 use App\Model\ProdutoModel;
-
+use App\Model\CategoriaModel;
 
 class ProdutoController extends Controller
 {
-    
-    public static function index() 
+    public static function index()
     {
-        
+        parent::isAuthenticated();
+
+        //include 'Model/ProdutoModel.php';
         $model = new ProdutoModel();
         $model->getAllRows();
 
-        parent::render('Produto/ProdutoListar.php');
-        
+        include 'View/modules/Produto/ListaProdutos.php';
     }
 
-    
+    /**
+     * 
+     */
     public static function form()
     {
-        
+        parent::isAuthenticated();
+
+        //include 'Model/CategoriaModel.php';
         $modelCategoria = new CategoriaModel();
         $modelCategoria->getAllRows();
 
-        include 'Model/ProdutoModel.php';
+        //include 'Model/ProdutoModel.php';
         $model = new ProdutoModel();
 
-        if(isset($_GET['id']))
-            $model = $model->getById( (int) $_GET['id']);
+        if (isset($_GET['id']))
+            $model = $model->getById((int) $_GET['id']);
 
-        parent::render('Produto/FormProduto.php');
+        include 'View/modules/Produto/FormProduto.php';
     }
 
-  
-    public static function save() {
-
-        
+    /**
+     * 
+     */
+    public static function save()
+    {
+        parent::isAuthenticated();
+        //include 'Model/ProdutoModel.php';
 
         $produto = new ProdutoModel();
         $produto->id = $_POST['id'];
-        $produto->codigo= $_POST['codigo'];
-        $produto->produto= $_POST['produto'];
+        $produto->nome = $_POST['nome'];
         $produto->descricao = $_POST['descricao'];
         $produto->valor = $_POST['valor'];
-        $produto->data = $_POST['data'];
-        $produto->id = $_POST['id'];
+        $produto->data_adicionado = $_POST['data_adicionado'];
+        $produto->id_categoria = $_POST['id_categoria'];
         $produto->save();
 
         header('location: /produto');
@@ -55,10 +60,11 @@ class ProdutoController extends Controller
 
     public static function delete()
     {
-        
+        parent::isAuthenticated();
+        //include 'Model/ProdutoModel.php';
 
         $model = new ProdutoModel();
-        $model->delete( (int) $_GET['id'] );
+        $model->delete((int) $_GET['id']);
 
         header("Location: /produto");
     }

@@ -5,30 +5,19 @@ namespace App\DAO;
 use App\Model\PessoaModel;
 use \PDO;
 
-
-
 class PessoaDAO extends DAO
 {
-
-
-
-    function __construct()
-    {
+    function __construct() {
         parent::__construct();
     }
 
-
-    function insert(PessoaModel $model)
-    {
-
+    function insert(PessoaModel $model) {
+        
         $sql = "INSERT INTO pessoa 
                 (nome, rg, cpf, data_nascimento, email, telefone, endereco) 
                 VALUES (?, ?, ?, ?, ?, ?, ?)";
-
-
+        
         $stmt = $this->conexao->prepare($sql);
-
-
         $stmt->bindValue(1, $model->nome);
         $stmt->bindValue(2, $model->rg);
         $stmt->bindValue(3, $model->cpf);
@@ -36,16 +25,32 @@ class PessoaDAO extends DAO
         $stmt->bindValue(5, $model->email);
         $stmt->bindValue(6, $model->telefone);
         $stmt->bindValue(7, $model->endereco);
-
         $stmt->execute();
     }
 
-    public function update(PessoaModel $model)
-    {
+    function getAllRows(){
+        $sql = "SELECT * FROM pessoa";
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
+    public function selectById(int $id){
+        $sql = "SELECT * FROM pessoa WHERE id = ?";
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
+
+        return $stmt->fetchObject("App\Model\PessoaModel");
+    }
+
+    public function update(PessoaModel $model){
         $sql = "UPDATE pessoa SET nome=?, rg=?, cpf=?, data_nascimento=?, email=?, telefone=?, endereco=? WHERE id=? ";
 
         $stmt = $this->conexao->prepare($sql);
-
         $stmt->bindValue(1, $model->nome);
         $stmt->bindValue(2, $model->rg);
         $stmt->bindValue(3, $model->cpf);
@@ -54,31 +59,7 @@ class PessoaDAO extends DAO
         $stmt->bindValue(6, $model->telefone);
         $stmt->bindValue(7, $model->endereco);
         $stmt->bindValue(8, $model->id);
-
         $stmt->execute();
-    }
-
-    function getAllRows()
-    {
-        $sql = "SELECT * from pessoa";
-
-        $stmt = $this->conexao->prepare($sql);
-        $stmt->execute();
-
-        return $stmt->fetchAll();
-    }
-
-    public function selectById(int $id)
-    {
-
-
-        $sql = "SELECT * FROM pessoa WHERE id = ?";
-
-        $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $id);
-        $stmt->execute();
-
-        return $stmt->fetchObject("App/Model/PessoaModel");
     }
 
     public function delete(int $id)
