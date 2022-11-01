@@ -12,6 +12,7 @@ use App\Controller\{
     ProdutoController,
     CategoriaController,
     LoginController,
+    UsuarioController,
 };
 
 switch($uri_parse)
@@ -74,7 +75,7 @@ switch($uri_parse)
     case '/categoria/excluir':
         CategoriaController::delete();
     break;
-
+// Rotas de Login 
     case '/login':
         LoginController::index();
     break;
@@ -85,6 +86,24 @@ switch($uri_parse)
 
     case '/login/logout':
         LoginController::logout();
+    break;
+
+ // Rotas de Usuarios
+
+    case '/usuario':
+        UsuarioController::index();
+    break;
+
+    case '/usuario/form':
+        UsuarioController::form();
+    break;
+
+    case '/usuario/save':
+        UsuarioController::save();
+    break;
+
+    case '/usuario/excluir':
+        UsuarioController::delete();
     break;
 
     default:
